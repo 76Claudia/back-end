@@ -8,12 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.context.annotation.ComponentScan;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 
 @SpringBootApplication
 
 @ComponentScan({"com.claudia"})
 class BackEndApplication implements CommandLineRunner {
-	private final OrderService orderService;
+	private OrderService orderService;
 
 	public BackEndApplication(OrderService orderService) {
 		this.orderService = orderService;
@@ -27,7 +30,10 @@ class BackEndApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Order order = new Order();
-		System.out.println(orderService.total(order));
+
+		System.out.print(orderService.total(order));
+
 
 	}
+
 }
